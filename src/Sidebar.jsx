@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './Sidebar.css';
-import SettingsIcon from '@material-ui/icons/Settings';
 import { Avatar, IconButton } from '@material-ui/core';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchOutlined from '@material-ui/icons/SearchOutlined';
 import SidebarChat from './SidebarChat';
-import { DockSharp } from '@material-ui/icons';
 import db from './firebase';
 import { useStateValue } from './StateProvider';
 
 function Sidebar({ id, name }) {
   const [rooms, setRooms] = useState([]);
-  const [{ user }, setUser] = useStateValue();
+  const [{ user }] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = db

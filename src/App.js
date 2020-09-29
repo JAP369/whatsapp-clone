@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Chat from './Chat';
 import Sidebar from './Sidebar';
@@ -7,7 +7,7 @@ import Login from './Login';
 import { useStateValue } from './StateProvider';
 
 function App() {
-  const [{ user }, setUser] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     <div className='app'>
