@@ -9,9 +9,11 @@ import SearchOutlined from '@material-ui/icons/SearchOutlined';
 import SidebarChat from './SidebarChat';
 import { DockSharp } from '@material-ui/icons';
 import db from './firebase';
+import { useStateValue } from './StateProvider';
 
 function Sidebar({ id, name }) {
   const [rooms, setRooms] = useState([]);
+  const [{ user }, setUser] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = db
@@ -27,7 +29,7 @@ function Sidebar({ id, name }) {
   return (
     <div className='sidebar'>
       <div className='sidebar__header'>
-        <Avatar />
+        <Avatar src={user?.photoURL} />
         <div className='sidebar__headerRight'>
           <IconButton>
             <DonutLargeIcon />
